@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Names</title>
+    <title>NAME</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -30,7 +30,7 @@
     <ul id="namesList"></ul>
 
     <script>
-        const names = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ivy", "Jack", "Kathy", "Leo", "Mona", "Nina", "Oscar", "Paul", "Quincy", "Rita", "Sam", "Tina"];
+        const names = ["Alice", "Bob", "Charlie","Leo", "Mona", "Nina"];
 
         function displayRandomNames() {
             const namesList = document.getElementById('namesList');
@@ -46,7 +46,7 @@
                 li.textContent = names[randomIndex];
                 namesList.appendChild(li);
                 count++;
-            }, 500); // Adjust the interval time as needed
+            }, 1000); // Adjust the interval time as needed
         }
     </script>
 </body>
