@@ -14,45 +14,43 @@
             padding: 10px 20px;
             font-size: 16px;
         }
-        ul {
-            list-style-type: none;
-            padding: 0;
+        img {
+            max-width: 100px;
+            margin: 10px;
         }
-        li {
-            font-size: 100px;
-            margin: 5px 0;
-        }
-        .last-name {
-            font-weight: bold;
-            color: red;
+        .last-image {
+            border: 2px solid red;
         }
     </style>
 </head>
 <body>
-    <h1>Random Names</h1>
-    <button onclick="displayRandomNames()">Click me</button>
-    <ul id="namesList"></ul>
+    <h1>Random Images</h1>
+    <button onclick="displayRandomImages()">Click me</button>
+    <div id="imagesContainer"></div>
 
     <script>
-        const images = ["https://github.com/suss-vli/suss-vli.github.io/blob/open-source/images/team/bryan.jpg"];
+        const images = [
+            "https://via.placeholder.com/100?text=Image1",
+            "https://via.placeholder.com/100?text=Image2",
+        ];
 
-        function displayRandomNames() {
-            const namesList = document.getElementById('namesList');
-            namesList.innerHTML = '';
+        function displayRandomImages() {
+            const imagesContainer = document.getElementById('imagesContainer');
+            imagesContainer.innerHTML = '';
             let count = 0;
             const interval = setInterval(() => {
                 if (count >= 10) {
                     clearInterval(interval);
                     return;
                 }
-                const randomIndex = Math.floor(Math.random() * names.length);
-                namesList.innerHTML = ''; // Clear the previous name
-                const li = document.createElement('li');
-                li.textContent = names[randomIndex];
+                const randomIndex = Math.floor(Math.random() * images.length);
+                imagesContainer.innerHTML = ''; // Clear the previous image
+                const img = document.createElement('img');
+                img.src = images[randomIndex];
                 if (count === 9) {
-                    li.classList.add('last-name');
+                    img.classList.add('last-image');
                 }
-                namesList.appendChild(li);
+                imagesContainer.appendChild(img);
                 count++;
             }, 1000); // Adjust the interval time as needed
         }
