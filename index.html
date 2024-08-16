@@ -4,26 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Names</title>
-    <script>
-        const names = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ivy", "Jack", "Kathy", "Leo", "Mona", "Nina", "Oscar"];
-        let count = 0;
-
-        function getRandomName() {
-            const randomName = names[Math.floor(Math.random() * names.length)];
-            document.getElementById('name').innerText = randomName;
-            count++;
-            if (count < 10) {
-                setTimeout(getRandomName, 1000);
-            }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
         }
-
-        window.onload = function() {
-            getRandomName();
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
         }
-    </script>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            margin: 5px 0;
+        }
+    </style>
 </head>
 <body>
-    <h1>Random Name Generator</h1>
-    <p id="name">Loading...</p>
+    <h1>Random Names</h1>
+    <button onclick="displayRandomNames()">Click me</button>
+    <ul id="namesList"></ul>
+
+    <script>
+        const names = ["Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Ivy", "Jack", "Kathy", "Leo", "Mona", "Nina", "Oscar", "Paul", "Quincy", "Rita", "Sam", "Tina"];
+
+        function displayRandomNames() {
+            const namesList = document.getElementById('namesList');
+            namesList.innerHTML = '';
+            let count = 0;
+            const interval = setInterval(() => {
+                if (count >= 10) {
+                    clearInterval(interval);
+                    return;
+                }
+                const randomIndex = Math.floor(Math.random() * names.length);
+                const li = document.createElement('li');
+                li.textContent = names[randomIndex];
+                namesList.appendChild(li);
+                count++;
+            }, 500); // Adjust the interval time as needed
+        }
+    </script>
 </body>
 </html>
