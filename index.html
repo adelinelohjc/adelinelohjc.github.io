@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NAME</title>
+    <title>Names</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,8 +19,12 @@
             padding: 0;
         }
         li {
-            font-size: 18px;
+            font-size: 30px;
             margin: 5px 0;
+        }
+        .last-name {
+            font-weight: bold;
+            color: red;
         }
     </style>
 </head>
@@ -30,7 +34,7 @@
     <ul id="namesList"></ul>
 
     <script>
-        const names = ["Alice", "Bob", "Charlie","Leo", "Mona", "Nina"];
+        const names = ["Adeline", "Tina"];
 
         function displayRandomNames() {
             const namesList = document.getElementById('namesList');
@@ -42,8 +46,12 @@
                     return;
                 }
                 const randomIndex = Math.floor(Math.random() * names.length);
+                namesList.innerHTML = ''; // Clear the previous name
                 const li = document.createElement('li');
                 li.textContent = names[randomIndex];
+                if (count === 9) {
+                    li.classList.add('last-name');
+                }
                 namesList.appendChild(li);
                 count++;
             }, 1000); // Adjust the interval time as needed
